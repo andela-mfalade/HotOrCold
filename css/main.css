@@ -1,0 +1,111 @@
+* {
+	margin: 0;
+	padding: 0;
+	/*border: 1px solid red;*/
+}
+
+body {
+	font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+	text-align: center;
+	background: url('../images/clouds.png') no-repeat center 0;  /*ptn7.png*/
+	background-size: contain;
+}
+
+#logo {
+	position: absolute;
+	top: 75px;
+	left: 27px;
+	height: 65px;
+	width: 65px;
+}
+
+header h1 {
+	position: absolute;
+	top: 2%;
+	left: 65%;
+	text-shadow: 2px 3px 3px #352A24;
+}
+
+#container {
+	width: 70%;
+	margin: 10% auto 0;
+	border: none;
+	border-radius: 60% 50%;
+	padding-top: 2em;
+	box-shadow: 4px 6px 9px -6px;
+}
+
+form {
+	width: 50%;
+	margin: -20px auto;
+	text-align:center;
+	border-radius: 5px;
+	padding: 50px;
+}
+hr {
+	width: 600px;
+	margin: 10px auto;
+}
+
+input#system_feedback {
+	margin: 1em auto;
+	height: 50px;
+	width: 500px;
+	font-size: 35px;
+	padding: 5px;
+	border: 1px solid #000;
+	color: #000;
+	text-align: center;
+}
+
+input#system_feedback {
+	background-color: #5F524A;
+	outline: none;
+	border: none;
+	color: #fff;
+}
+
+input#user_input {
+	height: 27px;
+	width: 300px;
+	padding:5px;
+	font-size: 30px;
+	margin-top:3px;
+	border: 1px solid rgb(89, 79, 72);
+	text-align: center;
+}
+
+
+input[type="submit"], input[type="reset"] {
+	height: 40px;
+	width: 140px;
+	color: #333;
+	padding: 7px 12px;
+	border: none;
+	background-color: rgba(17, 169, 37, 0.8);
+	margin-bottom: 10px;
+	font-size: 18px;
+	outline: none;
+	transition: .2s linear all;
+}
+
+#submit_guess, #give_up {
+	position: relative;
+	bottom: 9px;
+}
+#give_up {
+	background: rgba(250, 51, 58, 0.9);
+}
+
+input[type="reset"] {
+	background-color: rgba(4, 133, 150, 0.9);
+}
+
+input[type="submit"]:hover {
+	background-color: rgba(25, 169, 30, 0.9); 
+	color: #eee;
+} 
+input[type="reset"]:hover {
+	background-color: rgba(6, 145, 163, 0.9);
+	color: #eee;
+}
