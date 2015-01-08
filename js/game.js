@@ -5,8 +5,13 @@
   submitButton = document.getElementById("submit_guess"),
   giveUpButton = document.getElementById("give_up"),
   restartButton = document.getElementById("restart_game"),
+  finalAnswerDisplay = document.getElementById("guessfdbk"),
+  countboxFeedback = document.getElementById("countFeedback"),
   absoluteVal,
-  absVal;
+  absVal,
+  count = 0 ;
+
+  countboxFeedback.style.display = 'none';
 
 //Button functions
 
@@ -16,9 +21,7 @@
       },  
 
       restartGame: function() {
-
          var response = alert("Click Ok to restart game.");
-
           if (response === "y") {
             location.reload(true);
           }
@@ -31,21 +34,25 @@
 
   
   var compare = function() {
-    var input_number = document.getElementById("user_input").value,
+    var inputBox = document.getElementById("user_input"),
+        input_number = inputBox.value,
+        feedback = document.getElementById("system_feedback"),
         inputNum = parseInt(input_number, 10),
-        feedback = document.getElementById("system_feedback"),        
         absVal = Math.abs(inputNum - randomNum);
 
+        finalAnswerDisplay.setAttribute('value', randomNum);
+        
 
 //If user enters an invalid input
 
         if (isNaN(input_number) || input_number === "" || input_number > 100 || input_number < 0) { 
-          feedback.value = "Uh oh! Invalid input.." ;
+          feedback.setAttribute('value', 'Uh oh! Invalid input..');
           return false;
         }
 
 
 //If the user's guess is a valid number,  then this block of code executes..
+
 
         else { 
                
@@ -53,17 +60,24 @@
           if (typeof absoluteVal === "undefined") {
 
             if (inputNum === randomNum) {
-              feedback.value = "Choi! We've got a wizard in the house!" ;
+              feedback.setAttribute('value','Choi! We\'ve got a wizard in the house!');
+              finalAnswerDisplay.style.visibility = 'show';
+              submitButton.style.visibility = 'hidden';
+              giveUpButton.style.visibility = 'hidden';
             }
 
             else { 
 
               if (absVal <= 15) {
-                feedback.value = "Your guess is Hawt!" ;
+                feedback.setAttribute('value', 'Your guess is Hot!');
+                feedback.style.color = 'rgb(223, 150, 54)';
+                count+=1 ;
               }              
 
               else {
-                feedback.value = "Your guess is kinda cold!" ;
+                feedback.setAttribute('value', 'Your guess is cold!');
+                feedback.style.color = 'rgb(54, 223, 210)';
+                count+=1 ;
               }
 
             }
@@ -72,7 +86,16 @@
           }
 
           else if (inputNum === randomNum) {
-            feedback.value = "Ding Ding! We've got a winner.." ;
+            submitButton.style.display = 'none';
+            giveUpButton.style.display = 'none';
+            inputBox.style.display = 'none';
+            countboxFeedback.style.display = 'block';
+            feedback.setAttribute('value', 'Ding Ding! We\'ve got a winner..');
+            finalAnswerDisplay.style.display = 'block';
+            feedback.style.color = 'rgb(21, 195, 103)';            
+            inputBox.style.disabled = 'disabled';
+            var countmsg = "It took you '" + count + "' attempts to guess the secret number..";
+            countboxFeedback.setAttribute('value', countmsg );
             return false;
           }
 
@@ -81,15 +104,19 @@
           else { 
 
               if (absoluteVal > absVal) {
-                feedback.value = "You are getting Hotter!";
+                feedback.setAttribute('value', 'You are getting Hotter!');
+                feedback.style.color = 'rgb(223, 150, 54)';
+                count+=1 ;
               }
 
               else if (absoluteVal < absVal) {
-                feedback.value = "You are getting colder!";           
+                feedback.setAttribute('value', 'You are getting colder!');
+                feedback.style.color = 'rgb(54, 223, 210)';
+                count+=1 ;          
               }
 
               else {
-                feedback.value = "Close! Neither Hot nor Cold;)" ;
+                feedback.setAttribute('value', 'Neither Hot nor Cold..');
               }
               absoluteVal = absVal;
               return false ;

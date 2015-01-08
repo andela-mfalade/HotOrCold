@@ -109,3 +109,32 @@ input[type="reset"]:hover {
 	background-color: rgba(6, 145, 163, 0.9);
 	color: #eee;
 }
+
+#countFeedback {
+	position: absolute;
+	top: 475px;
+	left: 29%;
+	text-align: center;
+	border: none;
+	font-size: 18px;
+	height: 20px;
+	width: 600px;
+	background-color: #fff;
+	color: rgb(38, 192, 34);
+	display: none;
+}
+
+#guessfdbk {
+	padding: 10px;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	color: #fff;
+	background-color: #5F524A;
+	font-size: 30px;
+	border: none;
+	text-align: center;
+	display:none;
+	margin-left: 200px;
+	margi
+}
