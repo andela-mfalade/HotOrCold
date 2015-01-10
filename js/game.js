@@ -133,4 +133,4 @@ giveUpButton.onclick = activate.giveUp;
 
 restartButton.onclick = activate.restartGame;
 
-submitButton.onclick = compare;
+submitButton.onclick = compare; 
