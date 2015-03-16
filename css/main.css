@@ -91,7 +91,7 @@ input[type="submit"], input[type="reset"] {
 
 #submit_guess, #give_up {
 	position: relative;
-	bottom: 9px;
+	bottom: -15px;
 }
 #give_up {
 	background: rgba(250, 51, 58, 0.9);
